@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archives</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: sans-serif;
+      background: #f5f5f5;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      cursor: pointer;
+      
+    }
+
+
+
+   
+
+    
+  </style>
+</head>
+<body>
+  <h1>Archives</h1>
+
+
+  <div class="gallery" id="gallery"></div>
+
+  <script>
+    const gallery = document.getElementById("gallery");
+    let captures = JSON.parse(localStorage.getItem("canvasCaptures") || "[]");
+
+    captures.forEach((dataURL) => {
+      const img = document.createElement("img");
+      img.src = dataURL;
+      img.addEventListener("click", () => {
+        window.open(dataURL, "_blank");
+      });
+      gallery.appendChild(img);
+    });
+  </script>
+</body>
+</html>
