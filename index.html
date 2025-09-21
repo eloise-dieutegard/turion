@@ -8,6 +8,12 @@
 
   <style>
     @import url('https://fonts.cdnfonts.com/css/bocklin');
+    @font-face {
+  font-family: 'GurmukhiMN';
+  src: url('fonts/GurmukhiMN.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
     body, canvas {
       margin: 0;
       padding: 0;
@@ -44,10 +50,10 @@
       transform: translate(-50%, -50%);
       z-index: 2;
       display: flex;
-      flex-direction: column; /* Vertical */
+      flex-direction: column;
       gap: 10px;
       width: 150px;
-      align-items: center; /* Centre les boutons dans le container */
+      align-items: center;
     }
 
     .container button {
@@ -58,7 +64,7 @@
       padding: 10px 20px;
       color: #000;
       cursor: pointer;
-      text-align: center; /* Centre le texte */
+      text-align: center;
     }
 
     .container button:hover {
@@ -68,7 +74,7 @@
 
     /* Modal About */
     #aboutModal {
-      display: none; /* caché par défaut */
+      display: none;
       position: fixed;
       top: 0;
       left: 0;
@@ -96,8 +102,64 @@
       text-align: center;
       font-family: 'Gurmukhi MN', sans-serif;
       font-size: 11px;
+      bottom: 50px;
+
     }
-    
+
+    /* Hidden audio initially */
+    #liveAudio {
+      display: none;
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      justify-content: center;
+      transform: translateX(-50%);
+      z-index: 3;
+      width: 90%;
+      max-width: 50px;
+      border-radius: 25%;
+      padding: 10px;
+      box-sizing: border-box;
+      font-family: 'Gurmukhi MN', sans-serif;
+      color: white;
+    }
+
+    /* === Bandeau texte défilant corrigé === */
+    .marquee-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.7);
+      color: rgb(83, 15, 138);
+      padding: 0.5rem 0;
+      font-family: 'Gurmukhi MN', sans-serif;
+      font-size: 0.95rem;
+      overflow: hidden;
+    }
+
+    .marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      will-change: transform;
+      animation: scroll 40s linear infinite; /* vitesse du défilement */
+    }
+
+    .marquee-item {
+      padding-right: 3rem;
+      display: inline-block;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-100%); } /* on translate toute la piste */
+    }
   </style>
 </head>
 
@@ -117,13 +179,19 @@
     <div id="aboutContent">
       <p>
         Turion Radio is a small radiophonic laboratory, sound experimentation, nomadic station and archive platform.<br>
-The radio is live and broadcasts on FM waves (108 MHz frequency if you're nearby hihi) temporarily during events and festivals that we attend from time to time.<br>
-If you have any ideas, content to you want to share, collaborate... contact us at turionradio@proton.me and we'll try respond more or less quickly !<br>
-The audio flux is provived by the best team <a href="https://p-node.org"style="text-decoration:none" target="_blank">P-node</a> <3
- 
+        The ephemeral radio takes shapes around projects/contexts and transmits live (and on 108Mhz if you are closeby) during events that we attend from time to time.<br>
+        If you have ideas of content to you want to share, collaborate... contact us at radioturion@proton.me and we'll try respond more or less quickly !<br>
+        The audio flux is provided by the best team <a href="https://p-node.org" style="text-decoration:none" target="_blank">P-node</a> <3
       </p>
     </div>
   </div>
+
+<footer class="marquee-bar"> <div class="marquee"> <div class="marquee-track"> <span class="marquee-item special-font"> ✲ﾟ｡ ૮꒰ྀི∩´ ᵕ ∩꒱ྀིა ☆.｡₀:*ﾟ✲ﾟ*☆ ﾟ♥︎･ Live soon ヾ(❀╹◡╹)ﾉﾞ feel free to contact us with projects and ideas ! We favor minority viewpoints, content that lacks media space, amateur, experimental, and political ✲ﾟ｡ ૮꒰ྀི∩´ ᵕ ∩꒱ྀིა ☆.｡₀:*ﾟ✲ﾟ*☆ ﾟ♥︎･ This radio station does not accept any content that is discriminatory, racist, sexist, transphobic, pro-capitalist, or that would justify state violence that represents the police. </span> <span class="marquee-item special-font"> ✲ﾟ｡ ૮꒰ྀི∩´ ᵕ ∩꒱ྀིა ☆.｡₀:*ﾟ✲ﾟ*☆ ﾟ♥︎･ Live soon ヾ(❀╹◡╹)ﾉﾞ feel free to contact us with projects and ideas ! We favor minority viewpoints, content that lacks media space, amateur, experimental, and political ✲ﾟ｡ ૮꒰ྀི∩´ ᵕ ∩꒱ྀིა ☆.｡₀:*ﾟ✲ﾟ*☆ ﾟ♥︎･ This radio station does not accept any content that is discriminatory, racist, sexist, transphobic, pro-capitalist, or that would justify state violence that represents the police. ARCHIVES ARE COMING SOON </span> </div> </div> </footer>
+
+
+  <!-- Audio stream -->
+  <audio id="liveAudio" preload="none" controls
+         src="https://stream.p-node.org/turionradio.mp3"></audio>
 
   <script>
     const canvas = document.getElementById("myCanvas");
@@ -152,13 +220,13 @@ The audio flux is provived by the best team <a href="https://p-node.org"style="t
       ctx.moveTo(event.clientX, event.clientY);
     }
 
-    // Ajuster le canvas au redimensionnement
+    // Adjust canvas on resize
     window.addEventListener("resize", () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     });
 
-    // --- Sauvegarder capture ---
+    // Save capture
     function saveCapture() {
       const dataURL = canvas.toDataURL("image/png");
       let captures = JSON.parse(localStorage.getItem("canvasCaptures") || "[]");
@@ -166,7 +234,7 @@ The audio flux is provived by the best team <a href="https://p-node.org"style="t
       localStorage.setItem("canvasCaptures", JSON.stringify(captures));
     }
 
-    // --- Actions clavier ---
+    // Keyboard actions
     document.addEventListener("keydown", (e) => {
       if (e.code === "Space") {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -175,12 +243,12 @@ The audio flux is provived by the best team <a href="https://p-node.org"style="t
       }
     });
 
-    // --- Boutons ---
+    // Archives button
     document.getElementById("archivesBtn").addEventListener("click", () => {
       window.location.href = "archives.html";
     });
 
-    // --- About Modal ---
+    // About Modal
     const aboutModal = document.getElementById("aboutModal");
     const aboutBtn = document.getElementById("aboutBtn");
 
@@ -190,6 +258,20 @@ The audio flux is provived by the best team <a href="https://p-node.org"style="t
 
     aboutModal.addEventListener("click", () => {
       aboutModal.style.display = "none";
+    });
+
+    // Live button & audio
+    const liveBtn = document.getElementById("liveBtn");
+    const liveAudio = document.getElementById("liveAudio");
+
+    liveBtn.addEventListener("click", () => {
+      if (liveAudio.paused) {
+        liveAudio.style.display = "block"; // show player
+        liveAudio.play();
+      } else {
+        liveAudio.pause();
+        liveAudio.style.display = "none"; // hide player
+      }
     });
   </script>
 </body>
