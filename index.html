@@ -8,15 +8,9 @@
 
   <style>
     @import url('https://fonts.cdnfonts.com/css/bocklin');
-  @font-face {
+    @font-face {
   font-family: 'GurmukhiMN';
   src: url('fonts/GurmukhiMN.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-     @font-face {
-  font-family: 'Bocklin';
-  src: url('fonts/Bucklin.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -42,12 +36,13 @@
       transform: translateX(-50%);
       color: #000;
       text-align: center;
-      font-size: 3rem;
+      font-size: 4rem;
       font-family: 'Bocklin';
       padding: 5px;
       z-index: 2;
       margin: 0;
     }
+
 
     .container {
       position: absolute;
@@ -130,6 +125,21 @@
       color: white;
     }
 
+  #liveInfo {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgb(83, 15, 138);
+  text-align: center;
+  padding: 30px;
+  border-radius: 10px;
+  font-family: 'Gurmukhi MN', sans-serif;
+  font-size: 1rem;
+  color: rgb(83, 15, 138);
+  max-width: 40%;
+  box-sizing: border-box;
+  display:none; 
+  position:absolute; 
+  bottom:30%; left:25%; transform:translateX(-50%); z-index:3;"
+}
     /* === Bandeau texte défilant corrigé === */
     .marquee-bar {
       position: fixed;
@@ -179,6 +189,18 @@
     <button id="archivesBtn">Archives</button>
     <button id="aboutBtn">About</button>
   </div>
+     
+  <img id="liveImage" src="showhgg.png" alt="show" style="display:none; position:absolute; bottom:225px; left:75%; transform:translateX(-50%); z-index:3; max-width:230px;">
+<div id="liveInfo">
+  The host, the guest, and, the ghost<br>
+  <br>
+  Live from Big Table<br>
+  Common ground show<br> 
+  03/10 18-22h<br>
+  11/10 18-22h<br>
+  <br>
+  Agiou Porous 25 Votanikós Athens
+</div>
 
   <!-- Modal About -->
   <div id="aboutModal">
@@ -232,8 +254,7 @@
       canvas.height = window.innerHeight;
     });
 
- 
-// --- Actions clavier ---
+  // --- Actions clavier ---
     document.addEventListener("keydown", (e) => {
       if (e.code === "Space") {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -254,19 +275,30 @@
       aboutModal.style.display = "none";
     });
 
-    // Live button & audio
-    const liveBtn = document.getElementById("liveBtn");
-    const liveAudio = document.getElementById("liveAudio");
+  // Live button & audio
+const liveBtn = document.getElementById("liveBtn");
+const liveAudio = document.getElementById("liveAudio");
+const liveImage = document.getElementById("liveImage");
+const liveInfo = document.getElementById("liveInfo");
 
-    liveBtn.addEventListener("click", () => {
-      if (liveAudio.paused) {
-        liveAudio.style.display = "block"; // show player
-        liveAudio.play();
-      } else {
-        liveAudio.pause();
-        liveAudio.style.display = "none"; // hide player
-      }
-    });
+liveBtn.addEventListener("click", () => {
+  if (liveAudio.paused) {
+    // Show audio + image
+    liveAudio.style.display = "block"; 
+    liveAudio.play();
+    liveImage.style.display = "block"; // show image
+    liveInfo.style.display = "block"; // show info
+  } else {
+    // Hide audio + image
+    liveAudio.pause();
+    liveAudio.style.display = "none"; 
+    liveImage.style.display = "none"; // hide image
+    liveInfo.style.display = "none"; // hide info
+  }
+});
+
+
   </script>
 </body>
 </html>
+
