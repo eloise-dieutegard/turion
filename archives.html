@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,51 +9,65 @@
       margin: 0;
       padding: 20px;
       font-family: sans-serif;
-      background: #f5f5f5;
+      font-size: 10px;
+      color: black;
+      text-align: center;
     }
 
     h1 {
       text-align: center;
+      margin-bottom: 40px;
     }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 15px;
+    .archive-section {
+      text-align: center;
+      max-width: 300px;
+      margin-left: 20px auto;
+      padding: 30px;
+      border: 2px solid black; /* â Bordure noire de 2px */
+      border-radius: 5%; /* Tu peux garder ou ajuster le rayon */
+      display: block; /* â S'assure que chaque section est un bloc */
+    }
+
+    .archive-section h2 {
+      text-align: center;
       margin-bottom: 20px;
+      font-size: 12px;
     }
 
-    .gallery img {
-      width: 100%;
-      cursor: pointer;
-      
+    audio {
+      display: block;
+      margin: 0 auto 20px auto;
+      width: 70%;
     }
 
+    .concert-image {
+      text-align: center;
+    }
 
-
-   
-
-    
+    .concert-image img {
+      max-width: 100%;
+    }
   </style>
 </head>
 <body>
   <h1>Archives</h1>
 
+  <section class="archive-section">
+    <h2>
+      Concert Rebetiko dans le parc Drakopoulos <br>
+      ΡεμπÎ­τικο γλÎ­ντι οικονομικÎ®ς ενÎ¯σχυσης για το πÎ¬ρκο ΔρακÏπουλου
+    </h2>
 
-  <div class="gallery" id="gallery"></div>
+    <audio controls>
+      <source src="home/Drakopoulospark.mp3" type="audio/mpeg">
+      Votre navigateur ne supporte pas la lecture audio.
+    </audio>
 
-  <script>
-    const gallery = document.getElementById("gallery");
-    let captures = JSON.parse(localStorage.getItem("canvasCaptures") || "[]");
+    <div class="concert-image">
+      <img src="chemin/vers/ton-image.jpg" alt=" ">
+    </div>
+  </section>
 
-    captures.forEach((dataURL) => {
-      const img = document.createElement("img");
-      img.src = dataURL;
-      img.addEventListener("click", () => {
-        window.open(dataURL, "_blank");
-      });
-      gallery.appendChild(img);
-    });
-  </script>
 </body>
 </html>
