@@ -36,13 +36,12 @@
       transform: translateX(-50%);
       color: #000;
       text-align: center;
-      font-size: 4rem;
+      font-size: 3rem;
       font-family: 'Bocklin';
       padding: 5px;
       z-index: 2;
       margin: 0;
     }
-
 
     .container {
       position: absolute;
@@ -117,26 +116,14 @@
       transform: translateX(-50%);
       z-index: 3;
       width: 90%;
-      max-width: 400px;
-      border-radius: 10%;
+      max-width: 50px;
+      border-radius: 25%;
       padding: 10px;
       box-sizing: border-box;
       font-family: 'Gurmukhi MN', sans-serif;
       color: white;
     }
 
-  #liveInfo {
-  text-align: center;
-  padding: 30px;
-  font-family: 'Gurmukhi MN', sans-serif;
-  font-size: 1rem;
-  color: rgb(83, 15, 138);
-  max-width: 40%;
-  box-sizing: border-box;
-  display:none; 
-  position:absolute; 
-  bottom:30%; left:25%; transform:translateX(-50%); z-index:3;"
-}
     /* === Bandeau texte défilant corrigé === */
     .marquee-bar {
       position: fixed;
@@ -179,39 +166,27 @@
 <body>
   <canvas id="myCanvas"></canvas>
 
-  <h1>turion radio</h1>
+  <h1>TURION radio</h1>
 
   <div class="container">
     <button id="liveBtn">Live</button>
     <button id="archivesBtn">Archives</button>
     <button id="aboutBtn">About</button>
   </div>
-     
-  <img id="liveImage" src="showhgg.png" alt="show" style="display:none; position:absolute; bottom:225px; left:75%; opacity:80%;  transform:translateX(-50%); z-index:3; max-width:230px;">
-<div id="liveInfo">
-  The host, the guest, and, the ghost<br>
-  <br>
-  Live from Big Table<br>
-  Common ground<br> 
-  03/10 18-22h<br>
-  11/10 18-22h<br>
-  <br>
-  Agiou Porous 25 Votanikós Athens
-</div>
 
   <!-- Modal About -->
   <div id="aboutModal">
     <div id="aboutContent">
       <p>
         Turion Radio is a small radiophonic laboratory, sound experimentation, nomadic station and archive platform.<br>
-        The ephemeral radio takes shapes around projects/contexts and transmits live during events that we attend from time to time.<br>
-        If you have ideas of content to you want to share, collaborate... contact us at radioturion@proton.me and we'll try respond more or less quickly !<br>
+        The ephemeral radio takes shapes around projects/contexts and transmits live (and on 108Mhz if you are closeby) during events that we attend from time to time.<br>
+        If you have any ideas, content to you want to share, collaborate... contact us at radioturion@proton.me and we'll try respond more or less quickly !<br>
         The audio flux is provided by the best team <a href="https://p-node.org" style="text-decoration:none" target="_blank">P-node</a> <3
       </p>
     </div>
   </div>
 
-<footer class="marquee-bar"> <div class="marquee"> <div class="marquee-track"> <span class="marquee-item special-font"> ✲ﾟ｡ ૮꒰ྀི∩´ ᵕ ∩꒱ྀིა ☆.｡₀:*ﾟ✲ﾟ*☆ ﾟ♥︎･ Live soon ヾ(❀╹◡╹)ﾉﾞ feel free to contact us with projects and ideas ! We favor minority viewpoints, content that lacks media space, amateur, experimental, and political ✲ﾟ｡ ૮꒰ྀི∩´ ᵕ ∩꒱ྀིა ☆.｡₀:*ﾟ✲ﾟ*☆ ﾟ♥︎･ This radio station does not accept any content that is discriminatory, racist, sexist, transphobic, pro-capitalist, or that would justify state violence that represents the police. </span> <span class="marquee-item special-font"> ✲ﾟ｡ ૮꒰ྀི∩´ ᵕ ∩꒱ྀིა ☆.｡₀:*ﾟ✲ﾟ*☆ ﾟ♥︎･ Live soon ヾ(❀╹◡╹)ﾉﾞ feel free to contact us with projects and ideas ! We favor minority viewpoints, content that lacks media space, amateur, experimental, and political ✲ﾟ｡ ૮꒰ྀི∩´ ᵕ ∩꒱ྀིა ☆.｡₀:*ﾟ✲ﾟ*☆ ﾟ♥︎･ This radio station does not accept any content that is discriminatory, racist, sexist, transphobic, pro-capitalist, or that would justify state violence that represents the police. ARCHIVES ARE COMING SOON </span> </div> </div> </footer>
+<footer class="marquee-bar"> <div class="marquee"> <div class="marquee-track"> <span class="marquee-item special-font"> âÂÂ²ï¾ÂÂï½¡ à«®êÂÂ°à¾ÂÂà½²∩´ áµÂÂ ∩êÂÂ±à¾ÂÂà½²áÂÂÂÂ âÂÂÂÂ.ï½¡âÂÂÂÂ:*ï¾ÂÂâÂÂ²ï¾ÂÂ*âÂÂÂÂ ï¾ÂÂ♥ï¸ÂÂï½¥ Live soon ãÂÂ¾(âÂÂÂÂâÂÂ¹âÂÂ¡âÂÂ¹)ï¾ÂÂï¾ÂÂ feel free to contact us with projects and ideas ! We favor minority viewpoints, content that lacks media space, amateur, experimental, and political âÂÂ²ï¾ÂÂï½¡ à«®êÂÂ°à¾ÂÂà½²∩´ áµÂÂ ∩êÂÂ±à¾ÂÂà½²áÂÂÂÂ âÂÂÂÂ.ï½¡âÂÂÂÂ:*ï¾ÂÂâÂÂ²ï¾ÂÂ*âÂÂÂÂ ï¾ÂÂ♥ï¸ÂÂï½¥ This radio station does not accept any content that is discriminatory, racist, sexist, transphobic, pro-capitalist, or that would justify state violence that represents the police. </span> <span class="marquee-item special-font"> âÂÂ²ï¾ÂÂï½¡ à«®êÂÂ°à¾ÂÂà½²∩´ áµÂÂ ∩êÂÂ±à¾ÂÂà½²áÂÂÂÂ âÂÂÂÂ.ï½¡âÂÂÂÂ:*ï¾ÂÂâÂÂ²ï¾ÂÂ*âÂÂÂÂ ï¾ÂÂ♥ï¸ÂÂï½¥ Live soon ãÂÂ¾(âÂÂÂÂâÂÂ¹âÂÂ¡âÂÂ¹)ï¾ÂÂï¾ÂÂ feel free to contact us with projects and ideas ! We favor minority viewpoints, content that lacks media space, amateur, experimental, and political âÂÂ²ï¾ÂÂï½¡ à«®êÂÂ°à¾ÂÂà½²∩´ áµÂÂ ∩êÂÂ±à¾ÂÂà½²áÂÂÂÂ âÂÂÂÂ.ï½¡âÂÂÂÂ:*ï¾ÂÂâÂÂ²ï¾ÂÂ*âÂÂÂÂ ï¾ÂÂ♥ï¸ÂÂï½¥ This radio station does not accept any content that is discriminatory, racist, sexist, transphobic, pro-capitalist, or that would justify state violence that represents the police. ARCHIVES ARE COMING SOON </span> </div> </div> </footer>
 
 
   <!-- Audio stream -->
@@ -251,7 +226,15 @@
       canvas.height = window.innerHeight;
     });
 
-  // --- Actions clavier ---
+    // Save capture
+    function saveCapture() {
+      const dataURL = canvas.toDataURL("image/png");
+      let captures = JSON.parse(localStorage.getItem("canvasCaptures") || "[]");
+      captures.push(dataURL);
+      localStorage.setItem("canvasCaptures", JSON.stringify(captures));
+    }
+
+    // Keyboard actions
     document.addEventListener("keydown", (e) => {
       if (e.code === "Space") {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -259,6 +242,11 @@
         saveCapture();
       }
     });
+
+    // Archives button
+    document.getElementById("archivesBtn").addEventListener("click", () => {
+  window.open("archives.html", "_blank");
+});
 
     // About Modal
     const aboutModal = document.getElementById("aboutModal");
@@ -272,29 +260,21 @@
       aboutModal.style.display = "none";
     });
 
-  // Live button & audio
-const liveBtn = document.getElementById("liveBtn");
-const liveAudio = document.getElementById("liveAudio");
-const liveImage = document.getElementById("liveImage");
-const liveInfo = document.getElementById("liveInfo");
+    // Live button & audio
+    const liveBtn = document.getElementById("liveBtn");
+    const liveAudio = document.getElementById("liveAudio");
 
-liveBtn.addEventListener("click", () => {
-  if (liveAudio.paused) {
-    // Show audio + image
-    liveAudio.style.display = "block"; 
-    liveAudio.play();
-    liveImage.style.display = "block"; // show image
-    liveInfo.style.display = "block"; // show info
-  } else {
-    // Hide audio + image
-    liveAudio.pause();
-    liveAudio.style.display = "none"; 
-    liveImage.style.display = "none"; // hide image
-    liveInfo.style.display = "none"; // hide info
-  }
-});
-
-
+    liveBtn.addEventListener("click", () => {
+      if (liveAudio.paused) {
+        liveAudio.style.display = "block"; // show player
+        liveAudio.play();
+      } else {
+        liveAudio.pause();
+        liveAudio.style.display = "none"; // hide player
+      }
+    });
+    
+    
   </script>
 </body>
 </html>
