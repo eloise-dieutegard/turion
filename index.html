@@ -145,14 +145,15 @@ position: fixed;
 }
 
 .marquee-track {
- display: inline-flex;
-      will-change: transform;
+ display: inline-block;
+  white-space: nowrap; /* empêche les retours à la ligne */
       animation: scroll 20s linear infinite; /* vitesse du défilement */
 }
 
 .marquee-item {
   padding-right: 100px; /* spacing between repeats */
   font-size: 12px;
+    display: inline-block; /* garde tous les items sur la même ligne */
 }
 
 @keyframes scroll {
