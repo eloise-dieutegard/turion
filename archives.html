@@ -30,12 +30,11 @@
       
     }
 
-    /* Titre centré */
+
     .archive-section h2 {
       font-size: 16px;
       margin-bottom: 15px;
-      line-height: 1.5;
-      text-align: center;
+      line-height: 1.5;   
     }
 
     /* Ligne contenant image + player */
@@ -81,9 +80,15 @@
     .archive-separator {
       text-align: center;
       margin: 30px 0;
-
       color: #555;
     }
+
+    .archive-separator .art {
+  font-family: monospace;      /* Use monospace to keep alignment */
+  white-space: pre;            /* Preserve spaces and line breaks exactly */
+  text-align: center;          /* optional: center it horizontally */
+  line-height: 1.2em;          /* adjust vertical spacing if needed */
+}
 
     /* Responsive : empilement sur petit écran */
     @media (max-width: 700px) {
@@ -143,12 +148,14 @@
     <img class="small-img" src="SCN_0002.png" alt="scan1">
   </section>
 
-  <div class="archive-separator"><div class="art">
+  <div class="archive-separator">
+  <div class="art">
 ° ˛ ° ˚* _Π_____*☽*˚ ˛
 ✩ ˚˛˚*/______/__＼。✩˚ ˚˛
 ˚ ˛˚˛˚｜ 田田｜門｜ ˚ ˚
 ´´ ̛ ̛ ´´ ´´ ´´ ̛ ̛ ´´ ´´ ´´ ̛ ̛ ´´ ´´
-  </div></div>
+  </div>
+</div>
 
   <!-- ARCHIVE 2 -->
   <section class="archive-section">
