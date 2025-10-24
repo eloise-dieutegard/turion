@@ -4,121 +4,135 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Archives</title>
-  <style>
 
-     @import url('https://fonts.cdnfonts.com/css/venus-2');
-    
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/venus-2');
+
     body {
       margin: 0;
-      padding: 20px;
-      font-family: 'venus' sans-serif;
-      font-size: 10px;
-      color: black;
-      text-align: center;
+      padding: 40px 20px;
+      font-family: 'venus', sans-serif;
+      background-color: #fafafa;
+      color: #111;
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 40px;
+      font-size: 20px;
+      margin-bottom: 50px;
+      letter-spacing: 1px;
       font: 'venus'
     }
 
+    /* Conteneur principal d'une archive */
     .archive-section {
-      text-align: center;
-      max-width: 600px;
-      margin-left: 30px auto;
+      max-width: 900px;
+      margin: 0 auto 60px auto;
       padding: 30px;
-      
-      border-radius: 5%; /* Tu peux garder ou ajuster le rayon */
-      display: block; /* â S'assure que chaque section est un bloc */
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
+    /* Titre centré */
     .archive-section h2 {
+      font-size: 14px;
+      margin-bottom: 25px;
       text-align: center;
-      margin-bottom: 20px;
-      font-size: 12px;
+      line-height: 1.5;
     }
 
-    audio {
-      display: block;
-      margin: 0 auto 20px auto;
-      width: 100%;
+    /* Ligne contenant image + player */
+    .archive-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .concert-image {
+    /* Image à gauche */
+    .archive-image {
+      flex: 1 1 300px;
       text-align: center;
     }
 
-    .concert-image img {
+    .archive-image img {
       max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    /* Player à droite */
+    .archive-player {
+      flex: 1 1 400px;
+    }
+
+    .archive-player iframe {
+      width: 100%;
+      height: 160px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    /* Responsive : empilement sur petit écran */
+    @media (max-width: 700px) {
+      .archive-content {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
+
 <body>
   <h1>Archives</h1>
 
+  <!-- ARCHIVE 1 -->
   <section class="archive-section">
     <h2>
       Parc Drakopoulos <br>
       Ρεμπέτικο γλέντι οικονομικής ενίσχυσης για το πάρκο Δρακόπουλου
     </h2>
 
-    <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2197750411&color=%23ff9900&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/turionradio" title="Turionradio" target="_blank" style="color: #cccccc; text-decoration: none;">Turionradio</a> · <a href="https://soundcloud.com/turionradio/drakopoulos-park" title="Drakopoulos park - πάρκο Δρακόπουλου" target="_blank" style="color: #cccccc; text-decoration: none;">Drakopoulos park - πάρκο Δρακόπουλου</a></div>
+    <div class="archive-content">
+      <div class="archive-image">
+        <img src="rebetiko.png" alt="Parc Drakopoulos">
+      </div>
 
-    <div class="concert-image">
-      <img src="SCN_0002.png" alt=" ">
+      <div class="archive-player">
+        <iframe 
+          scrolling="no" 
+          allow="autoplay"
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2197750411&color=%23ff9900&auto_play=false&show_teaser=true&visual=true">
+        </iframe>
+      </div>
+    </div>
+    
+<img src="SCN_0002" alt="scan1">
+    
+  </section>
+
+  <!-- ARCHIVE 2 (exemple supplémentaire) -->
+  <section class="archive-section">
+    <h2>
+      The Host, the Guest, and, the Host <br>
+      Common ground, at Big Table - Athens
+    </h2>
+
+    <div class="archive-content">
+      <div class="archive-image">
+        <img src="HHH.jpg" alt="poster">
+      </div>
+
+      <div class="archive-player">
+        <iframe 
+          scrolling="no" 
+          allow="autoplay"
+          src="">
+        </iframe>
+      </div>
     </div>
   </section>
 
-<script> 
- const canvas = document.getElementById("myCanvas");
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let drawing = false;
-
-    canvas.addEventListener("mousedown", () => drawing = true);
-    canvas.addEventListener("mouseup", () => {
-      drawing = false;
-      ctx.beginPath();
-    });
-    canvas.addEventListener("mousemove", draw);
-
-    function draw(event) {
-      if (!drawing) return;
-      ctx.lineWidth = 15;
-      ctx.lineCap = "round";
-      ctx.strokeStyle = "black";
-
-      ctx.lineTo(event.clientX, event.clientY);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(event.clientX, event.clientY);
-    }
-
-    // Adjust canvas on resize
-    window.addEventListener("resize", () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-
-    // Save capture
-    function saveCapture() {
-      const dataURL = canvas.toDataURL("image/png");
-      let captures = JSON.parse(localStorage.getItem("canvasCaptures") || "[]");
-      captures.push(dataURL);
-      localStorage.setItem("canvasCaptures", JSON.stringify(captures));
-    }
-
-    // Keyboard actions
-    document.addEventListener("keydown", (e) => {
-      if (e.code === "Space") {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-      } else if (e.code === "Enter") {
-        saveCapture();
-      }
-    });
-  </script>
 </body>
 </html>
