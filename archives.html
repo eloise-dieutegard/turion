@@ -6,11 +6,12 @@
   <title>Archives</title>
 
   <style>
-   
+    @import url('https://fonts.cdnfonts.com/css/venus-2');
 
     body {
       margin: 0;
       padding-top: 40px;
+      padding-left: 10px; /* 👈 global left padding */
       background-color: #fafafa;
       color: #111;
       font-family: 'venus', sans-serif;
@@ -41,8 +42,8 @@
     .archive-content {
       display: flex;
       flex-wrap: wrap;
-     
-      gap: 5px; /* 👈 no space between image and player */
+      align-items: center;
+      gap: 0; /* 👈 no space between image and player */
     }
 
     /* Image à gauche */
@@ -51,7 +52,7 @@
     }
 
     .archive-image img {
-      max-width: 170px;
+      max-width: 250px;
       height: auto;
       display: block;
     }
@@ -69,9 +70,9 @@
 
     /* petite image en dessous (optionnelle) */
     .small-img {
-      max-width: 50%;
+      max-width: 40%;
       display: block;
-      margin: 0 auto 0 auto;
+      margin: 10px auto 0 auto;
     }
 
     /* Responsive : empilement sur petit écran */
@@ -138,4 +139,3 @@
 
 </body>
 </html>
-
