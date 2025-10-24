@@ -132,6 +132,55 @@
       </div>
     </div>
   </section>
+<script>
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
+    let drawing = false;
+
+    canvas.addEventListener("mousedown", () => drawing = true);
+    canvas.addEventListener("mouseup", () => {
+      drawing = false;
+      ctx.beginPath();
+    });
+    canvas.addEventListener("mousemove", draw);
+
+    function draw(event) {
+      if (!drawing) return;
+      ctx.lineWidth = 15;
+      ctx.lineCap = "round";
+      ctx.strokeStyle = "black";
+
+      ctx.lineTo(event.clientX, event.clientY);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(event.clientX, event.clientY);
+    }
+
+    // Adjust canvas on resize
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    // Save capture
+    function saveCapture() {
+      const dataURL = canvas.toDataURL("image/png");
+      let captures = JSON.parse(localStorage.getItem("canvasCaptures") || "[]");
+      captures.push(dataURL);
+      localStorage.setItem("canvasCaptures", JSON.stringify(captures));
+    }
+
+    // Keyboard actions
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Space") {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      } else if (e.code === "Enter") {
+        saveCapture();
+      }
+    });
+</script>
 </body>
 </html>
