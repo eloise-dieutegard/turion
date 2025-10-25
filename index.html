@@ -30,23 +30,19 @@
       z-index: 0;
     }
 
-    h1 {
+   .logo {
       position: absolute;
-      top: 38px;
+      top: 25px;
       left: 50%;
       transform: translateX(-50%);
-      color: #000;
-      text-align: center;
-      font-size: 3rem;
-      font-family: 'Venus', sans-serif;
-      padding: 5px;
       z-index: 2;
-      margin: 0;
+      width: 250px; /* adapte selon la taille du logo */
+      height: auto;
     }
 
     .container {
       position: absolute;
-      top: 50%;
+      top: 52%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 2;
@@ -179,7 +175,7 @@ position: fixed;
 <body>
   <canvas id="myCanvas"></canvas>
 
-  <h1>TURION radio</h1>
+  <img src="turionradio2.png" alt="Turion Radio Logo" class="logo">
 
   <div class="container">
     <button id="liveBtn">Live</button>
