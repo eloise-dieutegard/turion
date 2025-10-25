@@ -208,45 +208,52 @@
   </section>
 
   <script>
-    const canvas = document.getElementById("myCanvas");
-    const ctx = canvas.getContext("2d");
 
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
 
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
 
-    let drawing = false;
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
 
-    canvas.addEventListener("mousedown", () => drawing = true);
-    canvas.addEventListener("mouseup", () => {
-      drawing = false;
-      ctx.beginPath();
-    });
-    canvas.addEventListener("mousemove", draw);
+let drawing = false;
 
-    function draw(event) {
-      if (!drawing) return;
-      ctx.lineWidth = 15;
-      ctx.lineCap = "round";
-      ctx.strokeStyle = "black";
+// Dessin avec activation du canvas
+canvas.addEventListener("mousedown", (e) => {
+  drawing = true;
+  canvas.style.pointerEvents = "auto"; // canvas reçoit les events
+  ctx.beginPath();
+  ctx.moveTo(e.clientX, e.clientY);
+});
 
-      ctx.lineTo(event.clientX, event.clientY);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(event.clientX, event.clientY);
-    }
+canvas.addEventListener("mouseup", () => {
+  drawing = false;
+  canvas.style.pointerEvents = "none"; // clics passent à travers
+});
 
-    document.addEventListener("keydown", (e) => {
-      if (e.code === "Space") {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-      } else if (e.code === "Enter") {
-        alert("Capture non implémentée");
-      }
-    });
+canvas.addEventListener("mousemove", (e) => {
+  if (!drawing) return;
+  ctx.lineWidth = 10;
+  ctx.lineCap = "round";
+  ctx.strokeStyle = "purple";
+  ctx.lineTo(e.clientX, e.clientY);
+  ctx.stroke();
+});
+
+// Nettoyage et alert
+document.addEventListener("keydown", (e) => {
+  if (e.code === "Space") {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  } else if (e.code === "Enter") {
+    alert("Capture non implémentée");
+  }
+});
+
+
   </script>
 </body>
 </html>
