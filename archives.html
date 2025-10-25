@@ -6,18 +6,19 @@
   <title>Archives</title>
 
   <style>
-@import url('https://fonts.cdnfonts.com/css/bocklin');
+    @import url('https://fonts.cdnfonts.com/css/bocklin');
     @import url('https://fonts.cdnfonts.com/css/venus-2');
-    @font-face {
-  font-family: 'GurmukhiMN';
-  src: url('fonts/GurmukhiMN.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
 
-  
+    @font-face {
+      font-family: 'GurmukhiMN';
+      src: url('fonts/GurmukhiMN.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     body {
       padding-top: 40px;
-      font-family: 'Gurmukhi MN', sans-serif;
+      font-family: 'GurmukhiMN', sans-serif;
       margin: 0;
       background-color: #F4EBFF;
     }
@@ -29,36 +30,35 @@
       letter-spacing: 1px;
     }
 
-.home-link {
-  text-decoration: none;  /* pas de soulignement */
-  color: inherit;         /* garde la couleur du texte */
-  cursor: pointer;
-}
+    .home-link {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
 
-
-/* Conteneur principal d'une archive */
-.archive-section {
-  max-width: 900px;
-  margin: 5px 0 60px 10px; /* plus d'auto pour que ce soit collé à gauche */
-  padding: 0 10px;
-  text-align: left;
-}
+    /* Conteneur principal d'une archive */
+    .archive-section {
+      max-width: 900px;
+      margin: 5px 0 60px 10px; /* collé à gauche */
+      padding: 0 10px;
+      text-align: left;
+    }
 
     .archive-section h2 {
       font-size: 16px;
-      font-family: 'Gurmukhi MN', sans-serif;
+      font-family: 'GurmukhiMN', sans-serif;
       margin-bottom: 15px;
-      line-height: 1.5;   
+      line-height: 1.5;
     }
-/* Ligne contenant image + player */
-.archive-content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;     /* garde le centrage vertical */
-  justify-content: flex-start; /* alignement à gauche */
-  gap: 20px;
-  margin-left: 5px;
-}
+
+    /* Ligne contenant image + player */
+    .archive-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;     /* centrage vertical */
+      justify-content: flex-start; /* alignement à gauche */
+      gap: 20px;
+      margin-left: 5px;
     }
 
     /* Image à gauche */
@@ -99,11 +99,11 @@
     }
 
     .archive-separator .art {
-  font-family: monospace;      /* Use monospace to keep alignment */
-  white-space: pre;            /* Preserve spaces and line breaks exactly */
-  text-align: center;          /* optional: center it horizontally */
-  line-height: 1.2em;          /* adjust vertical spacing if needed */
-}
+      font-family: monospace;
+      white-space: pre;
+      text-align: center;
+      line-height: 1.2em;
+    }
 
     /* Responsive : empilement sur petit écran */
     @media (max-width: 700px) {
@@ -129,7 +129,7 @@
       z-index: 1000;
       width: 100%;
       height: 100%;
-      pointer-events: none; /* pour que le canvas n'empêche pas les clics */
+      pointer-events: none;
     }
   </style>
 </head>
@@ -137,7 +137,7 @@
 <body>
   <canvas id="myCanvas"></canvas>
 
- <h1><a href="https://turionradio.com" class="home-link">Archives</a></h1>
+  <h1><a href="https://turionradio.com" class="home-link">Archives</a></h1>
 
   <!-- ARCHIVE 1 -->
   <section class="archive-section">
@@ -162,18 +162,20 @@
 
     <img class="small-img" src="SCN_0002.png" alt="scan1">
   </section>
-<br>
-  <br>
+
+  <br><br>
+
   <div class="archive-separator">
-  <div class="art">
+    <div class="art">
 ° ˛ ° ˚* _Π_____*☽*˚ ˛
 ✩ ˚˛˚*/______/__＼。✩˚ ˚˛
 ˚ ˛˚˛˚｜ 田田｜門｜ ˚ ˚
 ´´ ̛ ̛ ´´ ´´ ´´ ̛ ̛ ´´ ´´ ´´ ̛ ̛ ´´ ´´
+    </div>
   </div>
-</div>
-<br>
-  <br>
+
+  <br><br>
+
   <!-- ARCHIVE 2 -->
   <section class="archive-section">
     <h2>
@@ -229,16 +231,15 @@
       ctx.moveTo(event.clientX, event.clientY);
     }
 
-    // Keyboard actions
     document.addEventListener("keydown", (e) => {
       if (e.code === "Space") {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
       } else if (e.code === "Enter") {
-        // Ici tu peux ajouter une fonction de capture si besoin
         alert("Capture non implémentée");
       }
     });
   </script>
 </body>
 </html>
+
 
