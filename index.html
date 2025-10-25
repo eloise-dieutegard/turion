@@ -10,12 +10,13 @@
     @import url('https://fonts.cdnfonts.com/css/bocklin');
     @import url('https://fonts.cdnfonts.com/css/venus-2');
     @font-face {
-  font-family: 'GurmukhiMN';
-  src: url('fonts/GurmukhiMN.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-    body, canvas {
+      font-family: 'GurmukhiMN';
+      src: url('fonts/GurmukhiMN.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body, html {
       margin: 0;
       padding: 0;
       width: 100%;
@@ -27,16 +28,18 @@
       position: absolute;
       top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
       z-index: 0;
     }
 
-   .logo {
+    .logo {
       position: absolute;
       top: 25px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 2;
-      width: 250px; /* adapte selon la taille du logo */
+      width: 250px;
       height: auto;
     }
 
@@ -53,7 +56,7 @@
       align-items: center;
     }
 
-    .container button {
+    .container button, .home-link {
       font-family: 'Gurmukhi MN', sans-serif;
       font-size: 25px;
       background: none;
@@ -62,6 +65,7 @@
       color: #000;
       cursor: pointer;
       text-align: center;
+      text-decoration: none;
     }
 
     .container button:hover {
@@ -77,8 +81,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border-color: #000;
-      border-radius: 15%;
       z-index: 3;
       justify-content: center;
       align-items: center;
@@ -87,7 +89,6 @@
     #aboutContent {
       background: white;
       padding: 20px;
-      border-color: #000;
       border-radius: 10px;
       width: 60%;
       text-align: center;
@@ -99,29 +100,14 @@
       text-align: center;
       font-family: 'Gurmukhi MN', sans-serif;
       font-size: 11px;
-      bottom: 50px;
-
     }
-.home-link {
-  text-decoration: none;  /* pas de soulignement */
-  color: inherit;         /* garde la couleur du texte */
-  cursor: pointer;
-  font-family: 'Gurmukhi MN', sans-serif;
-      font-size: 25px;
-      background: none;
-      border: none;
-      padding: 10px 20px;
-      color: #000;
-      cursor: pointer;
-      text-align: center;
-}
+
     /* Hidden audio initially */
     #liveAudio {
       display: none;
       position: absolute;
       bottom: 80px;
       left: 50%;
-      justify-content: center;
       transform: translateX(-50%);
       z-index: 3;
       width: 90%;
@@ -133,8 +119,8 @@
       color: white;
     }
 
-   .marquee-bar {
-position: fixed;
+    .marquee-bar {
+      position: fixed;
       left: 0;
       right: 0;
       bottom: 0;
@@ -145,30 +131,29 @@ position: fixed;
       font-family: 'Gurmukhi MN', sans-serif;
       font-size: 0.95rem;
       overflow: hidden;
-}
+    }
 
-.marquee {
-  display: flex;
-  overflow: hidden;
-}
+    .marquee {
+      display: flex;
+      overflow: hidden;
+    }
 
-.marquee-track {
- display: inline-block;
-  white-space: nowrap; /* empêche les retours à la ligne */
-      animation: scroll 20s linear infinite; /* vitesse du défilement */
-}
+    .marquee-track {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scroll 20s linear infinite;
+    }
 
-.marquee-item {
-  padding-right: 100px; /* spacing between repeats */
-  font-size: 12px;
-    display: inline-block; /* garde tous les items sur la même ligne */
-}
+    .marquee-item {
+      padding-right: 100px;
+      font-size: 12px;
+      display: inline-block;
+    }
 
-@keyframes scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
   </style>
 </head>
 
@@ -195,20 +180,18 @@ position: fixed;
     </div>
   </div>
 
-<footer class="marquee-bar">
-  <div class="marquee">
-    <div class="marquee-track">
-      <span class="marquee-item special-font">
-        ✲ﾟ｡ ૮꒰ྀི∩´ ᵕ `∩꒱ྀིა  ☆.｡₀:*ﾟ✲ﾟ*☆ ﾟ♥︎･ Live soon ⋆ feel free to contact us with projects and ideas!  We favor minority viewpoints, content that lacks media space, amateur, experimental, and political ✲ﾟヾ(❀╹◡╹)ﾉﾞThis radio station does not accept any content that is discriminatory, racist, sexist, transphobic, pro-capitalist, or that would justify state violence or the police. ARCHIVES ARE COMING SOON
-      </span>
-
-      <span class="marquee-item special-font">
-        ✲ﾟ｡ ૮꒰ྀི∩´ ᵕ `∩꒱ྀིა  ☆.｡₀:*ﾟ✲ﾟ*☆ ﾟ♥︎･ Live soon ⋆ feel free to contact us with projects and ideas! We favor minority viewpoints, content that lacks media space, amateur, experimental, and political ✲ﾟヾ(❀╹◡╹)ﾉﾞ This radio station does not accept any content that is discriminatory, racist, sexist, transphobic, pro-capitalist, or that would justify state violence or the police. ARCHIVES ARE COMING SOON
-      </span>
+  <footer class="marquee-bar">
+    <div class="marquee">
+      <div class="marquee-track">
+        <span class="marquee-item special-font">
+          ✲ﾟ｡ ૮꒰ྀི∩´ ᵕ `∩꒱ྀིა  ☆.｡₀:*ﾟ✲ﾟ*☆ ﾟ♥︎･ Live soon ⋆ feel free to contact us with projects and ideas!  ARCHIVES ARE COMING SOON
+        </span>
+        <span class="marquee-item special-font">
+          ✲ﾟ｡ ૮꒰ྀི∩´ ᵕ `∩꒱ྀིა  ☆.｡₀:*ﾟ✲ﾟ*☆ ﾟ♥︎･ Live soon ⋆ feel free to contact us with projects and ideas! ARCHIVES ARE COMING SOON
+        </span>
+      </div>
     </div>
-  </div>
-</footer>
-
+  </footer>
 
   <!-- Audio stream -->
   <audio id="liveAudio" preload="none" controls
@@ -222,32 +205,35 @@ position: fixed;
 
     let drawing = false;
 
-    canvas.addEventListener("mousedown", () => drawing = true);
+    // Démarrage du dessin
+    canvas.addEventListener("mousedown", (e) => {
+      drawing = true;
+      ctx.beginPath();
+      ctx.moveTo(e.clientX, e.clientY);
+    });
+
+    // Fin du dessin
     canvas.addEventListener("mouseup", () => {
       drawing = false;
-      ctx.beginPath();
     });
-    canvas.addEventListener("mousemove", draw);
 
-    function draw(event) {
+    // Dessin au mouvement
+    canvas.addEventListener("mousemove", (e) => {
       if (!drawing) return;
+      ctx.lineTo(e.clientX, e.clientY);
+      ctx.strokeStyle = "rgb(83, 15, 138)";
       ctx.lineWidth = 12;
       ctx.lineCap = "round";
-      ctx.strokeStyle = rgb(83, 15, 138);
-
-      ctx.lineTo(event.clientX, event.clientY);
       ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(event.clientX, event.clientY);
-    }
+    });
 
-    // Adjust canvas on resize
+    // Ajustement du canvas au resize
     window.addEventListener("resize", () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     });
 
-    // Save capture
+    // Sauvegarde capture
     function saveCapture() {
       const dataURL = canvas.toDataURL("image/png");
       let captures = JSON.parse(localStorage.getItem("canvasCaptures") || "[]");
@@ -255,7 +241,7 @@ position: fixed;
       localStorage.setItem("canvasCaptures", JSON.stringify(captures));
     }
 
-    // Keyboard actions
+    // Actions clavier
     document.addEventListener("keydown", (e) => {
       if (e.code === "Space") {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -266,8 +252,8 @@ position: fixed;
 
     // Archives button
     document.getElementById("archivesBtn").addEventListener("click", () => {
-  window.open("archives.html", "_blank");
-});
+      window.open("archives.html", "_blank");
+    });
 
     // About Modal
     const aboutModal = document.getElementById("aboutModal");
@@ -287,15 +273,14 @@ position: fixed;
 
     liveBtn.addEventListener("click", () => {
       if (liveAudio.paused) {
-        liveAudio.style.display = "block"; // show player
+        liveAudio.style.display = "block";
         liveAudio.play();
       } else {
         liveAudio.pause();
-        liveAudio.style.display = "none"; // hide player
+        liveAudio.style.display = "none";
       }
     });
-    
-    
   </script>
 </body>
 </html>
+
