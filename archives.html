@@ -20,52 +20,61 @@
 
     body {
       padding-top: 40px;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'Arial', sans-serif;
+      font-weight: 300; /* version fine */
       margin: 0;
-     
     }
 
-    h1 {
-      text-align: center;
-      font-weight: 300
-      font-size: 24px;
-      margin-bottom: 50px;
-      letter-spacing: 1px;
-    }
+    /* === Logo remplaçant le H1 === */
+  .logo-container {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.logo {
+  width: 250px; /* ajuste selon ton image */
+  height: auto;
+  display: inline-block;
+}
 
     .home-link {
       text-decoration: none;
       color: inherit;
       cursor: pointer;
+      display: inline-block;
     }
 
     /* Conteneur principal d'une archive */
     .archive-section {
       max-width: 900px;
-      margin: 5px 0 60px 10px; /* collé à gauche */
+      margin: 5px 0 60px 10px;
       padding: 0 10px;
       text-align: left;
     }
 
     .archive-section h2 {
       font-size: 16px;
-      font-family: 'Helvetica Neue', sans-serif;
-      font-weight: 300
+      font-family: 'Arial', sans-serif;
+      font-weight: 300; /* empêche l’effet bold */
       margin-bottom: 15px;
-      line-height: 1.5;
+      
+    }
+
+    .archive-section p {
+      font-family: 'Arial', sans-serif;
+      font-weight: 300; /* texte fin */
     }
 
     /* Ligne contenant image + player */
     .archive-content {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;     /* centrage vertical */
-      justify-content: flex-start; /* alignement à gauche */
+      align-items: center;
+      justify-content: flex-start;
       gap: 20px;
       margin-left: 5px;
     }
 
-    /* Image à gauche */
     .archive-image {
       flex: 0 0 auto;
     }
@@ -76,7 +85,6 @@
       display: block;
     }
 
-    /* Player à droite */
     .archive-player {
       flex: 1 1 auto;
       min-width: 200px;
@@ -88,14 +96,12 @@
       border: none;
     }
 
-    /* petite image en dessous (optionnelle) */
     .small-img {
       max-width: 40%;
       display: block;
       margin: 10px auto 0 auto;
     }
 
-    /* Séparateur entre archives */
     .archive-separator {
       text-align: center;
       margin: 30px 0;
@@ -109,7 +115,6 @@
       line-height: 1.2em;
     }
 
-    /* Responsive : empilement sur petit écran */
     @media (max-width: 700px) {
       .archive-content {
         flex-direction: column;
@@ -125,7 +130,6 @@
       }
     }
 
-    /* Canvas au-dessus */
     #myCanvas {
       position: fixed;
       top: 0;
@@ -141,7 +145,12 @@
 <body>
   <canvas id="myCanvas"></canvas>
 
-  <h1><a href="https://turionradio.com" class="home-link">Archives</a></h1>
+  <!-- Remplacement du h1 par une image -->
+ <div class="logo-container">
+  <a href="https://turionradio.com" class="home-link">
+    <img src="archives.png" alt="Turion Radio Archives" class="logo">
+  </a>
+</div>
 
   <!-- ARCHIVE 1 -->
   <section class="archive-section">
@@ -167,8 +176,6 @@
     <img class="small-img" src="SCN_0002.png" alt="scan1">
   </section>
 
-  <br><br>
-
   <div class="archive-separator">
     <div class="art">
 ° ˛ ° ˚* _Π_____*☽*˚ ˛
@@ -177,8 +184,6 @@
 ´´ ̛ ̛ ´´ ´´ ´´ ̛ ̛ ´´ ´´ ´´ ̛ ̛ ´´ ´´
     </div>
   </div>
-
-  <br><br>
 
   <!-- ARCHIVE 2 -->
   <section class="archive-section">
